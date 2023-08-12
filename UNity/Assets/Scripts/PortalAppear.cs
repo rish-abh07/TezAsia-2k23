@@ -26,6 +26,6 @@ public class PortalAppear : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("Treasure");
     }
 }
