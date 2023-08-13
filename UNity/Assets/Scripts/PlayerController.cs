@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     bool isSprinting = true;
+    public float mass = 100f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if(!isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -mass;
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
