@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,7 @@ public class PortalAppear : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        door.SetActive(false);
+       // door.SetActive(false);
         anim = door.GetComponent<Animator>();
         
     }
@@ -21,11 +22,19 @@ public class PortalAppear : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             door.SetActive(true);
-            anim.Play("PortalAnimation");
+            if (door.CompareTag("EntryPortal"))
+            {
+                anim.Play("EntryPortal");
+            }
+            else
+            {
+                anim.Play("PortalAnimation");
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Treasure");
+        Debug.Log("Mae jara hun duniya xod ke ");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
