@@ -13,6 +13,7 @@ namespace Tezos.Game
         [SerializeField, Header("Components")] private Button _deepLinkPair;
         // [SerializeField, Header("Manager")] private UIManager _uiManager;
         private IInformationManager _informationManager;
+        
         private const string PayloadToSign = "Tezos Signed Message: mydap.com 2021-01-14T15:16:04Z Hello world!";
         // Start is called before the first frame update
         private IEnumerator Start()
@@ -21,7 +22,7 @@ namespace Tezos.Game
             yield return null;
 
             _informationManager = InformationFactory.Instance.GetInfoManager();
-          //  _exampleManager.GetWalletMessageReceiver().HandshakeRecved += (handshake) => _qrCodeView.SetQrCode(handshake);
+         //  _informationManager.GetWalletMessageReceiver().HandshakeReceived += (handshake) => _qrCodeView.SetQrCode(handshake);
 
             SetButtonState(_deepLinkPair, false, false);
            // SetButtonState(_socialLoginButton, false, false);
@@ -51,6 +52,6 @@ namespace Tezos.Game
             button.gameObject.SetActive(active);
             button.interactable = interactable;
         }
-
+       //
     }
 }
